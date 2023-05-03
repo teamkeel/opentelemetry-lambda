@@ -86,6 +86,7 @@ jobs:
               --layer-name $LAYER_NAME \
               --license-info "Apache 2.0" \
               --zip-file fileb://${{ inputs.artifact-name }} \
+              --compatible-runtimes nodejs14.x nodejs16.x nodejs18.x go1.x provided.al2 \
               --query 'LayerVersionArn' \
               --output text
           )
