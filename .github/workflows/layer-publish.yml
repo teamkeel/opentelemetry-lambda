@@ -77,12 +77,12 @@ jobs:
 
       - name: Publish Lambda Layer
         run: |
-          ls -l
+          pwd
           LAYER_ARN=$(
             aws lambda publish-layer-version \
               --layer-name $LAYER_NAME \
               --license-info "Apache 2.0" \
-              --zip-file fileb://${{ inputs.artifact-name }} \
+              --zip-file fileb://opentelemetry-lambda/${{ inputs.artifact-name }} \
               --query 'LayerVersionArn' \
               --output text
           )
