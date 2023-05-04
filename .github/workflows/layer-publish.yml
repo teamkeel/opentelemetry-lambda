@@ -4,26 +4,25 @@ on:
   workflow_call:
     inputs:
       artifact-name:
-        description: 'This should correspond to a actions/upload-artifact name earlier in the build.'
+        description: "This should correspond to a actions/upload-artifact name earlier in the build."
         required: true
         type: string
       layer-name:
-        description: 'Layer name not including other parts like arch or version.'
+        description: "Layer name not including other parts like arch or version."
         required: true
         type: string
       component-version:
-        description: 'Version of the component included in this release. Not the same as the layer/tagged version.'
+        description: "Version of the component included in this release. Not the same as the layer/tagged version."
         required: true
         type: string
       architecture:
-        description: '(optional) amd64 or arm64'
+        description: "(optional) amd64 or arm64"
         required: false
         type: string
       aws_region:
-        description: 'Publish to which AWS region?'
+        description: "Publish to which AWS region?"
         required: true
         type: string
-
 
 permissions:
   id-token: write
@@ -34,22 +33,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Construct Layer Name
         shell: bash
         run: |
           LAYER_NAME=${{ inputs.layer-name }}
-          
+
           if [[ -n "${{ inputs.architecture }}" ]]; then
             LAYER_NAME=$LAYER_NAME-${{ inputs.architecture }}
           fi
-          
+
           LAYER_VERSION=$(echo "$GITHUB_REF_NAME" | sed -r 's/.*\/[^0-9\.]*//g')
           LAYER_VERSION_CLEANED=$(echo "$LAYER_VERSION" | sed -r 's/\./_/g')
-          
+
           LAYER_NAME=$LAYER_NAME-$LAYER_VERSION_CLEANED
           echo "LAYER_NAME=$LAYER_NAME" >> $GITHUB_ENV
-          
+
           echo GITHUB_ENV:
           cat $GITHUB_ENV
 
@@ -57,10 +55,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: ${{ inputs.artifact-name }}
-      - name: list files
-        run: ls -l /home/runner/work/opentelemetry-lambda/opentelemetry-lambda
-      - name: list files2
-        run: ls -l /home/runner/work/opentelemetry-lambda
+          path: ${{ inputs.artifact-name }}
 
       - uses: aws-actions/configure-aws-credentials@v2
         with:
