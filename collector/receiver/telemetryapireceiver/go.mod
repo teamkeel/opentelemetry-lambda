@@ -6,7 +6,7 @@ replace github.com/open-telemetry/opentelemetry-lambda/collector => ../../
 
 require (
 	github.com/golang-collections/go-datastructures v0.0.0-20150211160725-59788d5eb259
-	github.com/open-telemetry/opentelemetry-lambda/collector v0.75.0
+	github.com/open-telemetry/opentelemetry-lambda/collector v0.76.0
 	github.com/stretchr/testify v1.8.2
 	go.opentelemetry.io/collector/component v0.76.1
 	go.opentelemetry.io/collector/consumer v0.76.1
