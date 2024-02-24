@@ -51,6 +51,7 @@ jobs:
         aws_region:
           - eu-west-2
           - us-east-1
+          - eu-central-1
     with:
       artifact-name: opentelemetry-collector-layer-${{ matrix.architecture }}.zip
       layer-name: opentelemetry-collector
