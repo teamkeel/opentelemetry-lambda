@@ -12,20 +12,34 @@ The OpenTelemetry Lambda Layers provide the OpenTelemetry (OTel) code to export 
 
 Some layers include the corresponding OTel language SDK for the Lambda. This allows Lambdas to use OpenTelemetry to send traces and metrics to any configured backend.
 
+### Additional components
+
+We (Keel) have added a few additional components vs the core repo:
+
+**Exporters**
+
+- AWS Kinesis
+
+**Extensions**
+
+- Basic auth
+
+---
+
 ## Extension Layer Language Support
 
-* ### [Python + Collector Lambda Layer](python/README.md)
-* ### [Java + Collector Lambda Layer](java/README.md)
-* ### [NodeJS + Collector Lambda Layer](nodejs/README.md)
-* ### [.NET + Collector Lambda Layer](dotnet/README.md)
-* ### [Collector Lambda Layer](collector/README.md)
+- ### [Python + Collector Lambda Layer](python/README.md)
+- ### [Java + Collector Lambda Layer](java/README.md)
+- ### [NodeJS + Collector Lambda Layer](nodejs/README.md)
+- ### [.NET + Collector Lambda Layer](dotnet/README.md)
+- ### [Collector Lambda Layer](collector/README.md)
 
 ## FAQ
 
-* **What exporters/receivers/processors are included from the OpenTelemetry Collector?**
-    > You can check out [the stripped-down collector's imports](https://github.com/open-telemetry/opentelemetry-lambda/blob/main/collector/lambdacomponents/default.go#L18) in this repository for a full list of currently included components.
-* **Is the Lambda layer provided or do I need to build it and distribute it myself?**
-    > This repository does not provide pre-build Lambda layers. They must be built manually and saved in your AWS account. This repo has files to facilitate doing that. More information is provided in [the Collector folder's README](collector/README.md).
+- **What exporters/receivers/processors are included from the OpenTelemetry Collector?**
+  > You can check out [the stripped-down collector's imports](https://github.com/open-telemetry/opentelemetry-lambda/blob/main/collector/lambdacomponents/default.go#L18) in this repository for a full list of currently included components.
+- **Is the Lambda layer provided or do I need to build it and distribute it myself?**
+  > This repository does not provide pre-build Lambda layers. They must be built manually and saved in your AWS account. This repo has files to facilitate doing that. More information is provided in [the Collector folder's README](collector/README.md).
 
 ## Design Proposal
 
@@ -67,31 +81,31 @@ The Lambda instrumentation will flush the `MeterProvider` at the end of an invoc
 
 The table below captures the state of various features and their levels of support different runtimes.
 
-| Feature                    | Node | Python | Java | .NET | Go   | Ruby |
-| -------------------------- | :--: | :----: | :--: | :--: | :--: | :--: |
-| OpenTelemetry collector    |  +   |  +     |  +   |  +   |  +   |      |
-| Custom context propagation |  +   |  -     |  -   |  -   | N/A  |      |
-| X-Ray Env Var Span Link    |  -   |  -     |  -   |  -   | N/A  |      |
-| Semantic Conventions^      |      |  +     |  +   |  +   | N/A  |      |
-| - Trace General^<sup>[1]</sup>           |  +   |        |  +   |  +   | N/A  |      |
-| - Trace Incoming^<sup>[2]</sup>          |  -   |        |  -   |  +   | N/A  |      |
-| - Trace Outgoing^<sup>[3]</sup>          |  +   |        |  -   |  +   | N/A  |      |
-| - Metrics^<sup>[4]</sup>                 |  -   |        |  -   |  -   | N/A  |      |
-| Auto instrumentation       |      |   +    |  +   |  -   | N/A  |      |
-| Flush TracerProvider       |  +   |   +    |      |  +   |  +   |      |
-| Flush MeterProvider        |  +   |   +    |      |      |      |      |
+| Feature                         | Node | Python | Java | .NET | Go  | Ruby |
+| ------------------------------- | :--: | :----: | :--: | :--: | :-: | :--: |
+| OpenTelemetry collector         |  +   |   +    |  +   |  +   |  +  |      |
+| Custom context propagation      |  +   |   -    |  -   |  -   | N/A |      |
+| X-Ray Env Var Span Link         |  -   |   -    |  -   |  -   | N/A |      |
+| Semantic Conventions^           |      |   +    |  +   |  +   | N/A |      |
+| - Trace General^<sup>[1]</sup>  |  +   |        |  +   |  +   | N/A |      |
+| - Trace Incoming^<sup>[2]</sup> |  -   |        |  -   |  +   | N/A |      |
+| - Trace Outgoing^<sup>[3]</sup> |  +   |        |  -   |  +   | N/A |      |
+| - Metrics^<sup>[4]</sup>        |  -   |        |  -   |  -   | N/A |      |
+| Auto instrumentation            |      |   +    |  +   |  -   | N/A |      |
+| Flush TracerProvider            |  +   |   +    |      |  +   |  +  |      |
+| Flush MeterProvider             |  +   |   +    |      |      |     |      |
 
 #### Legend
 
-* `+` is supported
-* `-` not supported
-* `^` subject to change depending on spec updates
-* `N/A` not applicable to the particular language
-* blank cell means the status of the feature is not known.
+- `+` is supported
+- `-` not supported
+- `^` subject to change depending on spec updates
+- `N/A` not applicable to the particular language
+- blank cell means the status of the feature is not known.
 
 The following are runtimes which are no longer or not yet supported by this repository:
 
-* Node.js 12 - not [officially supported](https://github.com/open-telemetry/opentelemetry-js#supported-runtimes) by OpenTelemetry JS
+- Node.js 12 - not [officially supported](https://github.com/open-telemetry/opentelemetry-js#supported-runtimes) by OpenTelemetry JS
 
 [1]: https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/semantic_conventions/faas.md#general-attributes
 [2]: https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/semantic_conventions/faas.md#incoming-invocations
@@ -106,21 +120,21 @@ Here is a list of community roles with current and previous members:
 
 - Approvers ([@open-telemetry/lambda-extension-approvers](https://github.com/orgs/open-telemetry/teams/lambda-extension-approvers)):
 
-   - [Tristan Sloughter](https://github.com/tsloughter), Splunk
+  - [Tristan Sloughter](https://github.com/tsloughter), Splunk
 
 - Emeritus Approvers:
 
-   - [Lei Wang](https://github.com/wangzlei), AWS
-   - [Nathaniel Ruiz Nowell](https://github.com/NathanielRN), AWS
+  - [Lei Wang](https://github.com/wangzlei), AWS
+  - [Nathaniel Ruiz Nowell](https://github.com/NathanielRN), AWS
 
 - Maintainers ([@open-telemetry/lambda-extension-maintainers](https://github.com/orgs/open-telemetry/teams/lambda-extension-maintainers)):
 
-   - [Raphael Philipe Mendes da Silva](https://github.com/rapphil), AWS
-   - [Tyler Benson](https://github.com/tylerbenson), Lightstep
+  - [Raphael Philipe Mendes da Silva](https://github.com/rapphil), AWS
+  - [Tyler Benson](https://github.com/tylerbenson), Lightstep
 
 - Emeritus Maintainers:
 
-   - [Alex Boten](https://github.com/codeboten), Lightstep
-   - [Anthony Mirabella](https://github.com/Aneurysm9), AWS
+  - [Alex Boten](https://github.com/codeboten), Lightstep
+  - [Anthony Mirabella](https://github.com/Aneurysm9), AWS
 
 Learn more about roles in the [community repository](https://github.com/open-telemetry/community/blob/main/community-membership.md).

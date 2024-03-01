@@ -15,7 +15,9 @@
 package lambdacomponents
 
 import (
+	"github.com/open-telemetry/opentelemetry-collector-contrib/exporter/awskinesisexporter"
 	"github.com/open-telemetry/opentelemetry-collector-contrib/exporter/prometheusremotewriteexporter"
+	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/basicauthextension"
 	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/sigv4authextension"
 	"github.com/open-telemetry/opentelemetry-collector-contrib/processor/attributesprocessor"
 	"github.com/open-telemetry/opentelemetry-collector-contrib/processor/filterprocessor"
@@ -56,6 +58,7 @@ func Components(extensionID string) (otelcol.Factories, error) {
 		otlpexporter.NewFactory(),
 		otlphttpexporter.NewFactory(),
 		prometheusremotewriteexporter.NewFactory(),
+		awskinesisexporter.NewFactory(),
 	)
 	if err != nil {
 		errs = append(errs, err)
@@ -78,6 +81,7 @@ func Components(extensionID string) (otelcol.Factories, error) {
 
 	extensions, err := extension.MakeFactoryMap(
 		sigv4authextension.NewFactory(),
+		basicauthextension.NewFactory(),
 	)
 	if err != nil {
 		errs = append(errs, err)
