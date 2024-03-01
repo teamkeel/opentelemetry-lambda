@@ -12,6 +12,13 @@ The OpenTelemetry Lambda Layers provide the OpenTelemetry (OTel) code to export 
 
 Some layers include the corresponding OTel language SDK for the Lambda. This allows Lambdas to use OpenTelemetry to send traces and metrics to any configured backend.
 
+### Additional components
+
+We (Keel) have added a few additional components vs the core repo:
+
+- AWS Kinesis exporter
+- Basic auth extension
+
 ## Extension Layer Language Support
 
 * ### [Python + Collector Lambda Layer](python/README.md)
