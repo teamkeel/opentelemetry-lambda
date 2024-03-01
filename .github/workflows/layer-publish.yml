@@ -23,7 +23,6 @@ on:
         description: "(optional) a space delimited list of compatible runtimes (from https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html)"
         required: false
         type: string
-        default: "nodejs14.x nodejs16.x nodejs18.x go1.x provided.al2"
       release-group:
         description: 'Release to dev or prod? "prod" yields empty value. (Default: dev)'
         required: true
@@ -75,11 +74,11 @@ jobs:
           cat $GITHUB_ENV
 
       - name: Download built layer
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: ${{ inputs.artifact-name }}
 
-      - uses: aws-actions/configure-aws-credentials@v2
+      - uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ secrets.PROD_LAMBDA_ROLE_ARN }}
           role-duration-seconds: 1200
