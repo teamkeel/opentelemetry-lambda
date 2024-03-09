@@ -32,7 +32,7 @@ import (
 	"go.opentelemetry.io/collector/pdata/pcommon"
 	"go.opentelemetry.io/collector/pdata/ptrace"
 	"go.opentelemetry.io/collector/receiver"
-	semconv "go.opentelemetry.io/collector/semconv/v1.5.0"
+	semconv "go.opentelemetry.io/collector/semconv/v1.21.0"
 	"go.uber.org/zap"
 
 	"github.com/open-telemetry/opentelemetry-lambda/collector/internal/telemetryapi"
@@ -196,10 +196,10 @@ func newTelemetryAPIReceiver(
 	envResourceMap := map[string]string{
 		"AWS_LAMBDA_FUNCTION_MEMORY_SIZE": semconv.AttributeFaaSMaxMemory,
 		"AWS_LAMBDA_FUNCTION_VERSION":     semconv.AttributeFaaSVersion,
-		"AWS_REGION":                      semconv.AttributeFaaSInvokedRegion,
+		"AWS_REGION":                      semconv.AttributeCloudRegion,
 	}
 	r := pcommon.NewResource()
-	r.Attributes().PutStr(semconv.AttributeFaaSInvokedProvider, semconv.AttributeFaaSInvokedProviderAWS)
+	r.Attributes().PutStr(semconv.AttributeCloudProvider, semconv.AttributeCloudProviderAWS)
 	if val, ok := os.LookupEnv("AWS_LAMBDA_FUNCTION_NAME"); ok {
 		r.Attributes().PutStr(semconv.AttributeServiceName, val)
 		r.Attributes().PutStr(semconv.AttributeFaaSName, val)
