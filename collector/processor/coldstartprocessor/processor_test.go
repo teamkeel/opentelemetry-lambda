@@ -33,7 +33,7 @@ import (
 	"go.opentelemetry.io/collector/pdata/ptrace"
 	"go.opentelemetry.io/collector/processor/processorhelper"
 	"go.opentelemetry.io/collector/processor/processortest"
-	semconv "go.opentelemetry.io/collector/semconv/v1.5.0"
+	semconv "go.opentelemetry.io/collector/semconv/v1.21.0"
 	"go.uber.org/multierr"
 )
 
@@ -225,12 +225,12 @@ func addExecutionSpan(td ptrace.Traces, id pcommon.TraceID) {
 	ss.Scope().SetName("app/execution")
 	span := ss.Spans().AppendEmpty()
 	span.SetTraceID(id)
-	span.Attributes().PutStr(semconv.AttributeFaaSExecution, "af9d5aa4-a685-4c5f-a22b-444f80b3cc28")
+	span.Attributes().PutStr(semconv.AttributeFaaSInvocationID, "af9d5aa4-a685-4c5f-a22b-444f80b3cc28")
 }
 
 func executionSpan(span ptrace.Span, id pcommon.TraceID) {
 	span.SetTraceID(id)
-	span.Attributes().PutStr(semconv.AttributeFaaSExecution, "af9d5aa4-a685-4c5f-a22b-444f80b3cc28")
+	span.Attributes().PutStr(semconv.AttributeFaaSInvocationID, "af9d5aa4-a685-4c5f-a22b-444f80b3cc28")
 }
 
 func initializationSpan(span ptrace.Span, id pcommon.TraceID) {

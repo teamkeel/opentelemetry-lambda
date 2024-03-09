@@ -22,7 +22,7 @@ import (
 	"go.opentelemetry.io/collector/pdata/ptrace"
 	"go.opentelemetry.io/collector/processor"
 	"go.opentelemetry.io/collector/processor/processorhelper"
-	semconv "go.opentelemetry.io/collector/semconv/v1.5.0"
+	semconv "go.opentelemetry.io/collector/semconv/v1.21.0"
 	"go.uber.org/zap"
 )
 
@@ -67,7 +67,7 @@ func (p *coldstartProcessor) processTraces(ctx context.Context, td ptrace.Traces
 						return false
 					}
 				}
-				if _, ok := span.Attributes().Get(semconv.AttributeFaaSExecution); ok {
+				if _, ok := span.Attributes().Get(semconv.AttributeFaaSInvocationID); ok {
 					if p.coldstartSpan == nil {
 						p.faasExecution = &faasExecution{
 							span:     ptrace.NewSpan(),
