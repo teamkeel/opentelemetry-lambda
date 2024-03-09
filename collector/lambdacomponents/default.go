@@ -24,6 +24,7 @@ import (
 	"github.com/open-telemetry/opentelemetry-collector-contrib/processor/probabilisticsamplerprocessor"
 	"github.com/open-telemetry/opentelemetry-collector-contrib/processor/resourceprocessor"
 	"github.com/open-telemetry/opentelemetry-collector-contrib/processor/spanprocessor"
+	"github.com/open-telemetry/opentelemetry-collector-contrib/receiver/awsxrayreceiver"
 	"github.com/open-telemetry/opentelemetry-lambda/collector/processor/decoupleprocessor"
 	"go.opentelemetry.io/collector/exporter"
 	"go.opentelemetry.io/collector/exporter/loggingexporter"
@@ -46,6 +47,7 @@ func Components(extensionID string) (otelcol.Factories, error) {
 	var errs []error
 
 	receivers, err := receiver.MakeFactoryMap(
+		awsxrayreceiver.NewFactory(),
 		otlpreceiver.NewFactory(),
 		telemetryapireceiver.NewFactory(extensionID),
 	)
