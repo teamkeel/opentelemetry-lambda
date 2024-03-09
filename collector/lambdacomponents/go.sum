@@ -240,6 +240,8 @@ github.com/alecthomas/units v0.0.0-20211218093645-b94a6e3cc137/go.mod h1:OMCwj8V
 github.com/antihax/optional v1.0.0/go.mod h1:uupD/76wgC+ih3iEmQUL+0Ugr19nfwCT1kdvxnR2qWY=
 github.com/apache/thrift v0.19.0 h1:sOqkWPzMj7w6XaYbJQG7m4sGqVolaW/0D28Ln7yPzMk=
 github.com/apache/thrift v0.19.0/go.mod h1:SUALL216IiaOw2Oy+5Vs9lboJ/t9g40C+G07Dc0QC1I=
+github.com/aws/aws-sdk-go v1.49.17 h1:Cc+7LgPjKeJkF2SdNo1IkpQ5Dfl9HCZEVw9OP3CPuEI=
+github.com/aws/aws-sdk-go v1.49.17/go.mod h1:LF8svs817+Nz+DmiMQKTO3ubZ/6IaTpq3TjupRn3Eqk=
 github.com/aws/aws-sdk-go-v2 v1.24.1 h1:xAojnj+ktS95YZlDf0zxWBkbFtymPeDP+rvUQIH3uAU=
 github.com/aws/aws-sdk-go-v2 v1.24.1/go.mod h1:LNh45Br1YAkEKaAqvmE1m8FUx6a5b/V0oAKV7of29b4=
 github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream v1.5.4 h1:OCs21ST2LrepDfD3lwlQiOqIGp6JiEUqG84GzTDoyJs=
@@ -473,7 +475,14 @@ github.com/open-telemetry/opentelemetry-collector-contrib/extension/basicauthext
 github.com/open-telemetry/opentelemetry-collector-contrib/extension/basicauthextension v0.92.0/go.mod h1:kVKUUDps1g3sF7+GC4g4lTxJAGeVCTC3AA8aVf9Ptog=
 github.com/open-telemetry/opentelemetry-collector-contrib/extension/sigv4authextension v0.92.0 h1:bxyNu6cZkv5GTWFmcWGPFIThwFvmjVe6h/X+Gt07udI=
 github.com/open-telemetry/opentelemetry-collector-contrib/extension/sigv4authextension v0.92.0/go.mod h1:jvGTAwfXP5F5NPZRHi1ZMufUs2266V1Tpsmg6rbn/B8=
+github.com/open-telemetry/opentelemetry-collector-contrib/internal/aws/awsutil v0.92.0 h1:U7/7nrZxNB8PUBZLYo/qy0vP6DaOAJ5apMS3xbbf248=
+github.com/open-telemetry/opentelemetry-collector-contrib/internal/aws/awsutil v0.92.0/go.mod h1:4GE51nQU0mzb9r9Y0dhmTIUZ0rTqv9yyNjC+uTCk11Y=
+github.com/open-telemetry/opentelemetry-collector-contrib/internal/aws/proxy v0.92.0 h1:Xat45/0oaxamYYkjj6tsh2j12WQgaaBduhGE8/RSV+M=
+github.com/open-telemetry/opentelemetry-collector-contrib/internal/aws/proxy v0.92.0/go.mod h1:SwoCnHRRTuCVU4JZYOA71TglJOmPZagV/kA3IWEo9Qw=
+github.com/open-telemetry/opentelemetry-collector-contrib/internal/aws/xray v0.92.0 h1:H0pyX8j68p1ncFIpu0PNf/QFADmMS6CE4LdvEo9wFkQ=
+github.com/open-telemetry/opentelemetry-collector-contrib/internal/aws/xray v0.92.0/go.mod h1:x/Wkt8MvMipWCra/60oki6t7bheElqrfnmTmT0lTlfs=
 github.com/open-telemetry/opentelemetry-collector-contrib/internal/common v0.92.0 h1:x36ZvOy+ad363p3viPF2FZnaxcM2yoUPQpg9VX89unw=
+github.com/open-telemetry/opentelemetry-collector-contrib/internal/common v0.92.0/go.mod h1:qELp3+4I6DZUAbv5S3oyzxKGZHhwC82A0oOutosMtYg=
 github.com/open-telemetry/opentelemetry-collector-contrib/internal/coreinternal v0.92.0 h1:1UF2MF9boARNt/3L9SExlIMggp8htU4OiPz050CS6SM=
 github.com/open-telemetry/opentelemetry-collector-contrib/internal/coreinternal v0.92.0/go.mod h1:MwTANoi8W1PxCOR3VcRNjPvoDpCLe98tzjFTU55jXhQ=
 github.com/open-telemetry/opentelemetry-collector-contrib/internal/filter v0.92.0 h1:8ULgM2gWQYl9jq5uX2KqtQPFeBIM4TufAL91fFG2e5g=
@@ -503,6 +512,8 @@ github.com/open-telemetry/opentelemetry-collector-contrib/processor/resourceproc
 github.com/open-telemetry/opentelemetry-collector-contrib/processor/resourceprocessor v0.92.0/go.mod h1:XuEsoBYYtIvJghTAZcuL5cS/k6kKBpJhPCZukUfsUDY=
 github.com/open-telemetry/opentelemetry-collector-contrib/processor/spanprocessor v0.92.0 h1:CU9N14qgtLDYcqEw2kmok6lgSePLVcfQaxSTWD+Gku8=
 github.com/open-telemetry/opentelemetry-collector-contrib/processor/spanprocessor v0.92.0/go.mod h1:JOZI5+jhFio1aP+gwXYAARXhDoJzlD4mP4HiV/W42Uc=
+github.com/open-telemetry/opentelemetry-collector-contrib/receiver/awsxrayreceiver v0.92.0 h1:PcURA1JNvhth3HcZr4Vr6nhIJgsf56ZH6uZ821frHK8=
+github.com/open-telemetry/opentelemetry-collector-contrib/receiver/awsxrayreceiver v0.92.0/go.mod h1:l5svQdOM8gIjRrzhNr4s0JT4GbHFjPYs4yJElljUadc=
 github.com/openzipkin/zipkin-go v0.4.2 h1:zjqfqHjUpPmB3c1GlCvvgsM1G4LkvqQbBDueDOCg/jA=
 github.com/openzipkin/zipkin-go v0.4.2/go.mod h1:ZeVkFjuuBiSy13y8vpSDCjMi9GoI3hPpCJSBx/EYFhY=
 github.com/pkg/errors v0.8.0/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
@@ -569,6 +580,7 @@ github.com/spf13/pflag v1.0.5/go.mod h1:McXfInJRrz4CZXVZOBLb0bTZqETkiAhM9Iw0y3An
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/objx v0.1.1/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/objx v0.4.0/go.mod h1:YvHI0jy2hoMjB+UWwv71VJQ9isScKT/TqJzVSSt89Yw=
+github.com/stretchr/objx v0.5.0 h1:1zr/of2m5FGMsad5YfcqgdqdWrIhu+EBEJRhR1U7z/c=
 github.com/stretchr/objx v0.5.0/go.mod h1:Yh+to48EsGEfYuaHDzXPcE3xhTkx73EhmCGUpEOglKo=
 github.com/stretchr/testify v1.2.2/go.mod h1:a8OnRcib4nhh0OaRAV+Yts87kKdq0PP7pXfy6kDkUVs=
 github.com/stretchr/testify v1.3.0/go.mod h1:M5WIy9Dh21IEIfnGCwXGc5bZfKNJtfHm1UVUgZn+9EI=
